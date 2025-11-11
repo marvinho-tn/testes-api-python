@@ -77,7 +77,7 @@ Ele deve estar rodando **antes** das APIs e permanecer ativo **concorrentemente*
 
 2. Crie um arquivo `.env` com as seguintes variáveis:
    ```env
-   APP_NAME=Minha API Django
+   APP_NAME=Worker APP
    ADVICE_API_BASE_URL=https://api.adviceslip.com
    RABBITMQ_HOST=localhost
    MONGO_HOST=localhost
