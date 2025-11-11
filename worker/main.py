@@ -2,6 +2,7 @@ import pika
 from consumers.advices_consumer import handle_advice
 from shared.core.config import settings
 
+# Função principal para iniciar o consumidor de conselhos
 def main():
     connection = pika.BlockingConnection(pika.ConnectionParameters(settings.rabbitmq_host))
     channel = connection.channel()

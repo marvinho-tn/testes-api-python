@@ -2,6 +2,7 @@ from shared.core.config import settings
 import json
 import pika
 
+# Publica um conselho no RabbitMQ
 def publish_advice(advice_id: int, advice_text: str):
     # Conexão com RabbitMQ
     connection = pika.BlockingConnection(

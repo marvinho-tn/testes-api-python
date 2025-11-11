@@ -6,6 +6,7 @@ from shared.domains.advices.external_service import ExternalAdviceService
 from shared.domains.advices.schemas import AdviceRead
 from shared.domains.advices.service import AdviceService
 
+# Endpoint para obter um conselho
 @swagger_auto_schema(
     method='get',
     operation_summary="Get Advice",
@@ -20,6 +21,7 @@ def advice_view(request):
     )
     return Response(response.dict())
 
+# Endpoint para obter a contagem de conselhos
 @swagger_auto_schema(
     method='get',
     operation_summary="Get Advice Count",

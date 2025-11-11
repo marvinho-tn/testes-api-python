@@ -1,5 +1,6 @@
 from pydantic_settings import BaseSettings
 
+# Classe de configurações da aplicação carregadas de variáveis de ambiente
 class Settings(BaseSettings):
     advice_api_base_url: str
     app_name: str

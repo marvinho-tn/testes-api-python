@@ -10,6 +10,7 @@ q_param = openapi.Parameter(
     'q', openapi.IN_QUERY, description="Optional query string", type=openapi.TYPE_STRING
 )
 
+# Endpoint para obter detalhes de um item
 @swagger_auto_schema(
     method='get',
     operation_summary="Read Item",
