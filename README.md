@@ -195,10 +195,19 @@ Acesse em:
 
 ---
 
-## 🧠 Observações
+## 📖 Documentação das APIs
 
-- Todas as APIs usam a **shared-lib** para lógica e schemas.
-- Os endpoints básicos implementados são:
-  - `GET /` → Hello World
-  - `GET /items/<id>?q=...` → retorna id + query
-  - `GET /advices` → retorna conselho aleatório de uma API externa
+Cada aplicação possui sua própria interface de documentação interativa:
+
+- **FastAPI**
+  - Swagger UI: [http://localhost:8000/docs](http://localhost:8000/docs)
+  - Redoc: [http://localhost:8000/redoc](http://localhost:8000/redoc)
+
+- **Django (DRF + drf-yasg)**
+  - Swagger UI: [http://localhost:8000/swagger/](http://localhost:8000/swagger/)
+  - Redoc: [http://localhost:8000/redoc/](http://localhost:8000/redoc/)
+
+- **Flask (Flasgger)**
+  - Swagger UI: [http://localhost:5000/apidocs](http://localhost:5000/apidocs)
+
+> ⚠️ Lembre-se: as portas podem variar dependendo da sua configuração local.

@@ -1,0 +1,74 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Flask Advices API",
+        "version": "0.1.0"
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "tags": ["hello"],
+                "summary": "Hello World",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {"schema": {}}
+                        }
+                    }
+                }
+            }
+        },
+        "/advices/": {
+            "get": {
+                "tags": ["advices"],
+                "summary": "Get Advice",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "#/components/schemas/AdviceRead"}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/advices/count": {
+            "get": {
+                "tags": ["advices"],
+                "summary": "Get Advice Count",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {"$ref": "#/components/schemas/AdviceCountRead"}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AdviceRead": {
+                "type": "object",
+                "properties": {
+                    "id": {"type": "integer"},
+                    "advice": {"type": "string"}
+                },
+                "required": ["id", "advice"]
+            },
+            "AdviceCountRead": {
+                "type": "object",
+                "properties": {
+                    "count": {"type": "integer"}
+                },
+                "required": ["count"]
+            }
+        }
+    }
+}

@@ -1,17 +1,32 @@
-from django.http import JsonResponse
+from domains.advices.serializes import AdviceCountSerializer, AdviceSerializer
 from shared.domains.advices.external_service import ExternalAdviceService
 from shared.domains.advices.schemas import AdviceRead
 from shared.domains.advices.service import AdviceService
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from drf_yasg.utils import swagger_auto_schema
 
+@swagger_auto_schema(
+    method='get',
+    operation_summary="Get Advice",
+    responses={200: AdviceSerializer}
+)
+@api_view(['GET'])
 def advice_view(request):
     advice = ExternalAdviceService.get_advice()
     advice_read = AdviceRead(
         id=advice.slip.id,
         advice=advice.slip.advice
     )
-    return JsonResponse(advice_read.dict())
+    return Response(advice_read.dict())
 
+@swagger_auto_schema(
+    method='get',
+    operation_summary="Get Advice Count",
+    responses={200: AdviceCountSerializer}
+)
+@api_view(['GET'])
 def advice_count_view(request):
     service = AdviceService()
     advice_read = service.get_advice_count()
-    return JsonResponse(advice_read.dict())
+    return Response(advice_read.dict())

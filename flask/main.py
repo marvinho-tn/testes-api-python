@@ -1,8 +1,16 @@
 from domains.advices.routes import advices_bp
 from domains.hello.routes import hello_bp
 from flask import Flask, jsonify, request
+from flasgger import Swagger
+import json
 
 app = Flask(__name__)
+
+# Carrega template externo
+with open("docs/openapi_template.json") as f:
+    swagger_template = json.load(f)
+
+swagger = Swagger(app, template=swagger_template)
 
 # Rota com parâmetro
 @app.route("/items/<int:item_id>", methods=["GET"])
