@@ -63,6 +63,52 @@ Isso instala a lib em modo **editable**, permitindo que alterações em `src/sha
 
 ---
 
+## ⚙️ Worker (Consumer)
+
+O **Worker** é responsável por consumir mensagens publicadas pelas APIs no tópico de conselhos e salvar os dados em um banco MongoDB.  
+Ele deve estar rodando **antes** das APIs e permanecer ativo **concorrentemente** a elas.
+
+### ▶️ Como rodar
+
+1. Certifique-se de que a infraestrutura local está ativa:
+   ```bash
+   docker-compose up -d
+   ```
+
+2. Crie um arquivo `.env` com as seguintes variáveis:
+   ```env
+   APP_NAME=Minha API Django
+   ADVICE_API_BASE_URL=https://api.adviceslip.com
+   RABBITMQ_HOST=localhost
+   MONGO_HOST=localhost
+   MONGO_PORT=27017
+   ```
+
+3. Instale as dependências do worker:
+   ```bash
+   cd worker
+   pip install -r requirements.txt
+   ```
+
+4. Inicie o worker:
+   ```bash
+   python main.py
+   ```
+
+### 📦 Fluxo
+
+- As APIs (Flask, Django, FastAPI) publicam mensagens no tópico `advices`.
+- O Worker consome essas mensagens.
+- Cada mensagem é persistida no MongoDB (`advices_db.advices`).
+
+### 🧠 Observações
+
+- O Worker não expõe endpoints HTTP, ele roda como processo contínuo.
+- Se o Worker não estiver rodando, as mensagens publicadas pelas APIs não serão consumidas nem salvas.
+- É possível rodar múltiplos workers em paralelo para escalar o consumo.
+
+---
+
 ## ⚙️ Configuração de ambiente (`.env`)
 
 Cada API possui sua própria pasta e deve conter um arquivo `.env` com variáveis específicas.  
@@ -73,6 +119,8 @@ Esses arquivos **não são versionados no Git** (já estão no `.gitignore`).
 APP_NAME=Minha API Django
 ADVICE_API_BASE_URL=https://api.adviceslip.com
 RABBITMQ_HOST=localhost
+MONGO_HOST=localhost
+MONGO_PORT=27017
 ```
 
 ---
@@ -82,6 +130,8 @@ RABBITMQ_HOST=localhost
 APP_NAME=Minha API Flask
 ADVICE_API_BASE_URL=https://api.adviceslip.com
 RABBITMQ_HOST=localhost
+MONGO_HOST=localhost
+MONGO_PORT=27017
 ```
 
 ---
@@ -91,6 +141,8 @@ RABBITMQ_HOST=localhost
 APP_NAME=Minha API FastAPI
 ADVICE_API_BASE_URL=https://api.adviceslip.com
 RABBITMQ_HOST=localhost
+MONGO_HOST=localhost
+MONGO_PORT=27017
 ```
 
 ---
