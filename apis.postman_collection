@@ -90,6 +90,32 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Advice Count",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/advices/count",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"advices",
+								"count"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -170,6 +196,32 @@
 							"port": "5000",
 							"path": [
 								"advices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Advice Count",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/advices/count",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"advices",
+								"count"
 							]
 						}
 					},
@@ -257,6 +309,32 @@
 							"port": "8000",
 							"path": [
 								"advices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Advice Count",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/advices/count",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"advices",
+								"count"
 							]
 						}
 					},
