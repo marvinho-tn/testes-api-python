@@ -14,6 +14,42 @@ testes-api-python/
 
 ---
 
+## 🐳 Infraestrutura local com Docker Compose
+
+Antes de rodar qualquer API, é necessário subir a infraestrutura local.  
+Essa infraestrutura é definida no arquivo `docker-compose.yml` na raiz do projeto e pode incluir serviços como mensageria, bancos de dados, cache e outros componentes necessários.
+
+### ▶️ Como rodar
+
+Na raiz do projeto:
+
+```bash
+docker-compose up -d
+```
+
+- O parâmetro `-d` roda os serviços em **background**.  
+- Para verificar os containers ativos:
+
+```bash
+docker ps
+```
+
+- Para parar a infraestrutura:
+
+```bash
+docker-compose down
+```
+
+---
+
+### 📦 Por que rodar o Compose?
+
+- Centraliza a configuração da infraestrutura em um único arquivo.  
+- Facilita para qualquer pessoa clonar o projeto e rodar os serviços necessários sem instalar nada manualmente.  
+- Permite adicionar novos componentes (ex.: banco de dados, cache, mensageria) de forma simples e escalável.  
+
+---
+
 ## ⚙️ Instalação da shared-lib
 
 Antes de rodar qualquer API, instale a biblioteca compartilhada localmente:
@@ -36,6 +72,7 @@ Esses arquivos **não são versionados no Git** (já estão no `.gitignore`).
 ```env
 APP_NAME=Minha API Django
 ADVICE_API_BASE_URL=https://api.adviceslip.com
+RABBITMQ_HOST=localhost
 ```
 
 ---
@@ -44,6 +81,7 @@ ADVICE_API_BASE_URL=https://api.adviceslip.com
 ```env
 APP_NAME=Minha API Flask
 ADVICE_API_BASE_URL=https://api.adviceslip.com
+RABBITMQ_HOST=localhost
 ```
 
 ---
@@ -52,6 +90,7 @@ ADVICE_API_BASE_URL=https://api.adviceslip.com
 ```env
 APP_NAME=Minha API FastAPI
 ADVICE_API_BASE_URL=https://api.adviceslip.com
+RABBITMQ_HOST=localhost
 ```
 
 ---
