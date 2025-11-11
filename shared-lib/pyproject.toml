@@ -1,0 +1,4 @@
+[tool.poetry]
+name = "shared-lib"
+version = "0.1.0"
+packages = [{ include = "shared", from = "src" }]
