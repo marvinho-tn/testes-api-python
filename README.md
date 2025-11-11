@@ -24,7 +24,7 @@ Essa infraestrutura é definida no arquivo `docker-compose.yml` na raiz do proje
 Na raiz do projeto:
 
 ```bash
-docker-compose up -d
+docker-compose up
 ```
 
 - O parâmetro `-d` roda os serviços em **background**.  
