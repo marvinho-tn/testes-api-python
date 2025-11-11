@@ -8,3 +8,6 @@ collection = db["advices"]
 def save_advice(advice: dict):
     collection.insert_one(advice)
     print("[✓] Saved to MongoDB")
+
+def get_count_advices() -> int:
+    return collection.count_documents({})
