@@ -18,5 +18,5 @@ def get_advice():
 @router.get("/count", response_model=AdviceCountRead)
 def get_advice_count():
     service = AdviceService()
-    read = service.get_advice_count()
-    return read
+    response = service.get_advice_count()
+    return response

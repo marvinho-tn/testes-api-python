@@ -1,10 +1,10 @@
 from domains.advices.serializes import AdviceCountSerializer, AdviceSerializer
+from drf_yasg.utils import swagger_auto_schema
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 from shared.domains.advices.external_service import ExternalAdviceService
 from shared.domains.advices.schemas import AdviceRead
 from shared.domains.advices.service import AdviceService
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from drf_yasg.utils import swagger_auto_schema
 
 @swagger_auto_schema(
     method='get',
@@ -14,11 +14,11 @@ from drf_yasg.utils import swagger_auto_schema
 @api_view(['GET'])
 def advice_view(request):
     advice = ExternalAdviceService.get_advice()
-    advice_read = AdviceRead(
+    response = AdviceRead(
         id=advice.slip.id,
         advice=advice.slip.advice
     )
-    return Response(advice_read.dict())
+    return Response(response.dict())
 
 @swagger_auto_schema(
     method='get',
@@ -28,5 +28,5 @@ def advice_view(request):
 @api_view(['GET'])
 def advice_count_view(request):
     service = AdviceService()
-    advice_read = service.get_advice_count()
-    return Response(advice_read.dict())
+    response = service.get_advice_count()
+    return Response(response.dict())

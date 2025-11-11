@@ -1,5 +1,5 @@
-import json
 from shared.domains.advices.repositories import save_advice
+import json
 
 def handle_advice(ch, method, properties, body):
     message = json.loads(body)

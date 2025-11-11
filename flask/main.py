@@ -1,7 +1,7 @@
 from domains.advices.routes import advices_bp
 from domains.hello.routes import hello_bp
-from flask import Flask, jsonify, request
 from flasgger import Swagger
+from flask import Flask, jsonify, request
 import json
 
 app = Flask(__name__)

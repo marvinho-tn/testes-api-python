@@ -1,8 +1,7 @@
-from django.http import HttpResponse
-from shared.domains.hello.services import HelloService
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from drf_yasg.utils import swagger_auto_schema
+from shared.domains.hello.services import HelloService
 
 @swagger_auto_schema(
     method='get',
@@ -13,4 +12,3 @@ from drf_yasg.utils import swagger_auto_schema
 def hello_view(request):
     message = HelloService.get_greeting()
     return Response(message)
-

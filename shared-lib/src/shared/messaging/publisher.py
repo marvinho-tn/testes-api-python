@@ -1,6 +1,6 @@
-import pika
-import json
 from shared.core.config import settings
+import json
+import pika
 
 def publish_advice(advice_id: int, advice_text: str):
     # Conexão com RabbitMQ

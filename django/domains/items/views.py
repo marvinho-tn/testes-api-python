@@ -1,8 +1,7 @@
-from django.http import JsonResponse
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from drf_yasg.utils import swagger_auto_schema
-from drf_yasg import openapi
 
 item_id_param = openapi.Parameter(
     'item_id', openapi.IN_PATH, description="Item Id", type=openapi.TYPE_INTEGER, required=True
@@ -20,7 +19,7 @@ q_param = openapi.Parameter(
 @api_view(['GET'])
 def detail_view(request, item_id: int):
     query = request.GET.get("q")
-    return JsonResponse({
+    return Response({
         "id": item_id,
         "query": query
     })
